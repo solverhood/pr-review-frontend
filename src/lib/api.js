@@ -11,3 +11,9 @@ export async function getTicket(id) {
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
+
+export async function getStatusHistory(id) {
+  const res = await fetch(`${BASE}/tickets/${id}/transitions`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
